@@ -39,4 +39,5 @@ while 1:
 
     screen.fill(white)
     screen.blit(ball, ballrect)
+    screen.blit(ball2, ball2rect)
     pygame.display.flip()
