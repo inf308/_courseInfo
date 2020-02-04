@@ -17,7 +17,7 @@ ball = pygame.image.load("intro_ball.gif")
 ballrect = ball.get_rect()
 
 ball2 = pygame.image.load("intro_ball.gif")
-ball2rect = ball.get_rect()
+ball2rect = ball2.get_rect()
 
 
 while 1:
