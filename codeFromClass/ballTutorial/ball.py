@@ -5,6 +5,7 @@ pygame.init()
 
 size = width, height = 1080, 760
 speed = [4, 4]
+speed2 = [3, 3]
 black = 0, 0, 0
 white = 255, 255, 255
 red = 255, 0, 0
@@ -32,9 +33,9 @@ while 1:
 
     ball2rect = ball2rect.move(speed)
     if ball2rect.left < 0 or ball2rect.right > width:
-        speed[0] = -speed[0]
+        speed2[0] = -speed2[0]
     if ball2rect.top < 0 or ball2rect.bottom > height:
-        speed[1] = -speed[1]
+        speed2[1] = -speed2[1]
 
     screen.fill(white)
     screen.blit(ball, ballrect)
