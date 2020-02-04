@@ -28,10 +28,13 @@ while 1:
         if event.type == pygame.mouse.get_pressed():
             ## if mouse is pressed get position of cursor ##
             pos = pygame.mouse.get_pos()
+            print(pos, end=" ")
             ## check if cursor is on button ##
             if ballrect.collidepoint(pos):
+                print("ball")
                 speed = [random.randint(0,5), random.randint(0,5)]
             if ball2rect.collidepoint(pos):
+                print("ball2")
                 speed2 = [random.randint(0,5), random.randint(0,5)]
 
 
