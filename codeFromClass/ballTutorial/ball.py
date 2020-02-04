@@ -25,17 +25,20 @@ while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
 
-        if event.type == pygame.mouse.get_pressed():
+        if event.type == pygame.MOUSEBUTTONDOWN:
             ## if mouse is pressed get position of cursor ##
-            pos = pygame.mouse.get_pressed()
-            print(pos, end=" ")
+            x, y = event.pos
+            print(x, y, end=" ")
             ## check if cursor is on button ##
-            if ballrect.collidepoint(pos):
+            if ballrect.collidepoint(x, y):
                 print("ball")
                 speed = [random.randint(0,5), random.randint(0,5)]
-            if ball2rect.collidepoint(pos):
+            if ball2rect.collidepoint(x, y):
                 print("ball2")
                 speed2 = [random.randint(0,5), random.randint(0,5)]
+
+
+
 
 
     ballrect = ballrect.move(speed)
