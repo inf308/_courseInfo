@@ -1,6 +1,6 @@
 #!../env/bin/python3
 
-import sys, pygame
+import sys, pygame, random
 pygame.init()
 
 size = width, height = 1080, 760
@@ -24,6 +24,16 @@ ball2rect = ball2.get_rect()
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
+
+        if event.type == pygame.mouse.get_pressed():
+            ## if mouse is pressed get position of cursor ##
+            pos = pygame.mouse.get_pos()
+            ## check if cursor is on button ##
+            if ballrect.collidepoint(pos):
+                speed = [random.randint(0,5), random.randint(0,5)]
+            if ball2rect.collidepoint(pos):
+                speed2 = [random.randint(0,5), random.randint(0,5)]
+
 
     ballrect = ballrect.move(speed)
     if ballrect.left < 0 or ballrect.right > width:
