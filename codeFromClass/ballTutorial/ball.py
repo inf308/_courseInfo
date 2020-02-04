@@ -31,7 +31,7 @@ while 1:
     if ballrect.top < 0 or ballrect.bottom > height:
         speed[1] = -speed[1]
 
-    ball2rect = ball2rect.move(speed)
+    ball2rect = ball2rect.move(speed2)
     if ball2rect.left < 0 or ball2rect.right > width:
         speed2[0] = -speed2[0]
     if ball2rect.top < 0 or ball2rect.bottom > height:
