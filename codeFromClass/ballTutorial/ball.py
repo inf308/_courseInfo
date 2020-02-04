@@ -27,7 +27,7 @@ while 1:
 
         if event.type == pygame.mouse.get_pressed():
             ## if mouse is pressed get position of cursor ##
-            pos = pygame.mouse.get_pos()
+            pos = pygame.mouse.get_pressed()
             print(pos, end=" ")
             ## check if cursor is on button ##
             if ballrect.collidepoint(pos):
