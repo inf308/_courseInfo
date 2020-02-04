@@ -1,3 +1,5 @@
+#!../env/bin/python3
+
 import sys, pygame
 pygame.init()
 
