@@ -16,6 +16,10 @@ screen = pygame.display.set_mode(size)
 ball = pygame.image.load("intro_ball.gif")
 ballrect = ball.get_rect()
 
+ball2 = pygame.image.load("intro_ball.gif")
+ball2rect = ball.get_rect()
+
+
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
@@ -24,6 +28,12 @@ while 1:
     if ballrect.left < 0 or ballrect.right > width:
         speed[0] = -speed[0]
     if ballrect.top < 0 or ballrect.bottom > height:
+        speed[1] = -speed[1]
+
+    ball2rect = ball2rect.move(speed)
+    if ball2rect.left < 0 or ball2rect.right > width:
+        speed[0] = -speed[0]
+    if ball2rect.top < 0 or ball2rect.bottom > height:
         speed[1] = -speed[1]
 
     screen.fill(white)
