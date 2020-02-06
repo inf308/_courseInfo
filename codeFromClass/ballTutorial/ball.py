@@ -3,6 +3,17 @@
 import sys, pygame, random
 pygame.init()
 
+class Ball():
+  def __init__(self, speed, win):
+    self.speed = speed
+    self.win = win
+    self.img = pygame.image.load("intro_ball.gif")
+    self.rect = self.img.get_rect()
+
+
+
+
+
 size = width, height = 1080, 760
 speed = [4, 4]
 speed2 = [3, 3]
@@ -14,6 +25,15 @@ blue = 0, 0, 255
 
 screen = pygame.display.set_mode(size)
 
+
+testBall = Ball([2,2], screen)
+print(testBall.speed)
+print(testBall.win)
+print(testBall.img)
+print(testBall.rect)
+
+
+'''
 ball = pygame.image.load("intro_ball.gif")
 ballrect = ball.get_rect()
 
@@ -57,3 +77,4 @@ while 1:
     screen.blit(ball, ballrect)
     screen.blit(ball2, ball2rect)
     pygame.display.flip()
+'''
