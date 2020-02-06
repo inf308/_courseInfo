@@ -14,7 +14,12 @@ class Ball():
     if self.rect.collidepoint(x, y):
       self.speed = [random.randint(0,5), random.randint(0,5)]
 
-
+  def move(self):
+    self.rect = self.rect.move(self.speed)
+    if self.rect.left < 0 or self.rect.right > self.win.get_width():
+      self.speed[0] = -self.speed[0]
+    if self.rect.top < 0 or self.rect.bottom > self.win.get_height():
+      self.speed[1] = -self.speed[1]
 
 
 size = width, height = 1080, 760
@@ -29,45 +34,27 @@ blue = 0, 0, 255
 screen = pygame.display.set_mode(size)
 
 
-testBall = Ball([2,2], screen)
-print(testBall.speed)
-print(testBall.win)
-print(testBall.img)
-print(testBall.rect)
-
-
-'''
-ball = pygame.image.load("intro_ball.gif")
-ballrect = ball.get_rect()
-
-ball2 = pygame.image.load("intro_ball.gif")
-ball2rect = ball2.get_rect()
+ball1 = Ball([2, 2], screen)
+ball2 = Ball([3, 3], screen)
 
 
 while 1:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT: sys.exit()
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT: sys.exit()
 
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            ## if mouse is pressed get position of cursor ##
-            x, y = event.pos
-            print(x, y, end=" ")
-            ## check if cursor is on button ##
+    if event.type == pygame.MOUSEBUTTONDOWN:
+      ## if mouse is pressed get position of cursor ##
+      x, y = event.pos
+      print(x, y, end=" ")
+      ## check if cursor is on button ##
       ball1.onMouseClick(self, x, y)
       ball2.onMouseClick(self, x, y)
 
-    ballrect = ballrect.move(speed)
-    if ballrect.left < 0 or ballrect.right > width:
-        speed[0] = -speed[0]
-    if ballrect.top < 0 or ballrect.bottom > height:
-        speed[1] = -speed[1]
-
-    ball2rect = ball2rect.move(speed2)
-    if ball2rect.left < 0 or ball2rect.right > width:
-        speed2[0] = -speed2[0]
-    if ball2rect.top < 0 or ball2rect.bottom > height:
-        speed2[1] = -speed2[1]
-
+  ball1.move()
+  ball2.move()
+  
+    
+'''
     screen.fill(white)
     screen.blit(ball, ballrect)
     screen.blit(ball2, ball2rect)
