@@ -21,6 +21,8 @@ class Ball():
     if self.rect.top < 0 or self.rect.bottom > self.win.get_height():
       self.speed[1] = -self.speed[1]
 
+  def draw(self):
+    self.win.blit(self.img, self.rect)
 
 size = width, height = 1080, 760
 speed = [4, 4]
@@ -47,16 +49,15 @@ while 1:
       x, y = event.pos
       print(x, y, end=" ")
       ## check if cursor is on button ##
-      ball1.onMouseClick(self, x, y)
-      ball2.onMouseClick(self, x, y)
+      ball1.onMouseClick(x, y)
+      ball2.onMouseClick(x, y)
 
   ball1.move()
   ball2.move()
   
     
-'''
-    screen.fill(white)
-    screen.blit(ball, ballrect)
-    screen.blit(ball2, ball2rect)
-    pygame.display.flip()
-'''
+
+  screen.fill(white)
+  ball1.draw()
+  ball2.draw()
+  pygame.display.flip()
