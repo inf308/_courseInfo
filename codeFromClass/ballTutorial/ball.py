@@ -10,6 +10,9 @@ class Ball():
     self.img = pygame.image.load("intro_ball.gif")
     self.rect = self.img.get_rect()
 
+  def onMouseClick(self, x, y):
+    if self.rect.collidepoint(x, y):
+      self.speed = [random.randint(0,5), random.randint(0,5)]
 
 
 
@@ -50,16 +53,8 @@ while 1:
             x, y = event.pos
             print(x, y, end=" ")
             ## check if cursor is on button ##
-            if ballrect.collidepoint(x, y):
-                print("ball")
-                speed = [random.randint(0,5), random.randint(0,5)]
-            if ball2rect.collidepoint(x, y):
-                print("ball2")
-                speed2 = [random.randint(0,5), random.randint(0,5)]
-
-
-
-
+      ball1.onMouseClick(self, x, y)
+      ball2.onMouseClick(self, x, y)
 
     ballrect = ballrect.move(speed)
     if ballrect.left < 0 or ballrect.right > width:
