@@ -39,7 +39,8 @@ def draw_environment(blobList):
     for blob in blobList:
         pygame.draw.circle(game_display, blob.color, [blob.x, blob.y], blob.size)
     pygame.display.update()
-    blob.move()
+    for blob in blobList:
+        blob.move()
 
     
 def main():
