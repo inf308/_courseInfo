@@ -18,4 +18,10 @@ def populationInit():
   return population
 
 # 3. Fitness function: 1-(length - sum of chromosome)/length 
+def fitness(chromosome):
+  fitness = 0
+  for gene in chromosome:
+    fitness += gene
+  return fitness
 
+# 4. Get the fitness for the entire population
