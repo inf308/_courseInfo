@@ -25,3 +25,11 @@ def fitness(chromosome):
   return fitness
 
 # 4. Get the fitness for the entire population
+def populationFitness(population):
+  fitnesses = []
+  for chromosome in population:
+    fitnesses.append(fitness(chromosome))
+  return fitnesses
+
+print(populationFitness(populationInit()))
+
