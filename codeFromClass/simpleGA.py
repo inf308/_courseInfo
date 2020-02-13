@@ -19,9 +19,13 @@ def populationInit():
 
 # 3. Fitness function: 1-(length - sum of chromosome)/length 
 def fitness(chromosome):
-  fitness = 0
+
+  chromosomeSum = 0
   for gene in chromosome:
-    fitness += gene
+    chromosomeSum += gene
+
+  fitness = 1 - (CHROMOSOME_LENGTH - chromosomeSum)/CHROMOSOME_LENGTH
+
   return fitness
 
 # 4. Get the fitness for the entire population
