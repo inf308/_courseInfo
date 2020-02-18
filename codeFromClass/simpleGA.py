@@ -52,16 +52,22 @@ def populationProbability(fitnesses):
     population based on probability'''
 def getParent(probabilities):
   rand = random.random()
+  print(rand)
+  print(probabilities)
   i = 0
-  while rand < probabilities[i]:
+  while rand > probabilities[i]:
+    print(i, end=" ")
     i += 1
   return i
-
 
 ''' 8. Make a function that makes a new chromosome whose first 
     half comes from one random member of the population and 
     second half comes from another random member of the 
     population'''
+
+
+
+
 ''' 9. Make a function that goes through each gene in a chromosome
     and randomly decides whether or not to mutate. If it mutates,
     replace 0 with 1 or vice versa. '''
@@ -81,3 +87,4 @@ prob = populationProbability(fit)
 print("Population", pop)
 print("Fitness", fit)
 print("Probabilities", prob)
+print(getParent(prob))
