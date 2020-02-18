@@ -35,9 +35,16 @@ def populationFitness(population):
     fitnesses.append(fitness(chromosome))
   return fitnesses
 
-print(populationFitness(populationInit()))
-
 ''' 5. Get probabilities '''
+def populationProbability(fitnesses):
+  probabilities = [fitnesses[0]]
+  for i in range(1, len(populationInit())):
+    probabilities.append(fitnesses[i] + probabilities[i-1])
+
+
+  return probabilities
+
+
 ''' 6. Get list with sum of probabilities so far 
     (e.g. [1, 2, 1.5, 1] => [1, 3, 4.5, 5.5])'''
 ''' 7. Make a function that randomly selects a member of the 
