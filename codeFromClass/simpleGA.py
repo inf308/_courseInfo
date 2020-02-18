@@ -64,7 +64,10 @@ def getParent(population, probabilities):
     half comes from one random member of the population and 
     second half comes from another random member of the 
     population'''
-
+def splice(parent1, parent2):
+  crossover = int(len(parent1)/2)
+  child = parent1[0:crossover] + parent2[crossover:]
+  return child
 
 
 
