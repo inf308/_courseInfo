@@ -84,10 +84,12 @@ def splice(parent1, parent2):
 ''' For convenience, make a function that finds and prints the
     fittest member of the current population.'''
 
+
 pop = populationInit()
 fit = populationFitness(pop)
 prob = populationProbability(fit)
-print("Population", pop)
-print("Fitness", fit)
-print("Probabilities", prob)
-print(getParent(prob))
+#print("Population", pop)
+#print("Fitness", fit)
+#print("Probabilities", prob)
+#print(getParent(prob))
+child = splice(getParent(prob), getParent(prob))
