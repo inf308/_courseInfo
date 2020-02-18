@@ -41,8 +41,11 @@ def populationProbability(fitnesses):
   for i in range(1, len(populationInit())):
     probabilities.append(fitnesses[i] + probabilities[i-1])
 
+  for i in range(len(probabilities)):
+    probabilities[i] = probabilities[i]/probabilities[-1]
 
   return probabilities
+
 
 
 ''' 6. Get list with sum of probabilities so far 
