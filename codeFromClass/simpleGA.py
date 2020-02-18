@@ -36,6 +36,8 @@ def populationFitness(population):
   return fitnesses
 
 ''' 5. Get probabilities '''
+''' 6. Get list with sum of probabilities so far 
+    (e.g. [1, 2, 1.5, 1] => [1, 3, 4.5, 5.5])'''
 def populationProbability(fitnesses):
   probabilities = [fitnesses[0]]
   for i in range(1, len(populationInit())):
@@ -46,12 +48,16 @@ def populationProbability(fitnesses):
 
   return probabilities
 
-
-
-''' 6. Get list with sum of probabilities so far 
-    (e.g. [1, 2, 1.5, 1] => [1, 3, 4.5, 5.5])'''
 ''' 7. Make a function that randomly selects a member of the 
     population based on probability'''
+def getParent(probabilities):
+  rand = random.random()
+  i = 0
+  while rand < probabilities[i]:
+    i += 1
+  return i
+
+
 ''' 8. Make a function that makes a new chromosome whose first 
     half comes from one random member of the population and 
     second half comes from another random member of the 
