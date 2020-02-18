@@ -50,7 +50,7 @@ def populationProbability(fitnesses):
 
 ''' 7. Make a function that randomly selects a member of the 
     population based on probability'''
-def getParent(probabilities):
+def getParent(population, probabilities):
   rand = random.random()
   print(rand)
   print(probabilities)
@@ -58,7 +58,7 @@ def getParent(probabilities):
   while rand > probabilities[i]:
     print(i, end=" ")
     i += 1
-  return i
+  return population[i]
 
 ''' 8. Make a function that makes a new chromosome whose first 
     half comes from one random member of the population and 
