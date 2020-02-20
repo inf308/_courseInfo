@@ -2,6 +2,8 @@ import random
 
 CHROMOSOME_LENGTH = 8
 POPULATION_SIZE = 8
+#MUTATION_RATE = 0.05
+MUTATION_RATE = 1
 
 # 1. Make one chromosome: list of 4 things with random values of 0 or 1
 def chromosomeInit():
@@ -69,11 +71,21 @@ def splice(parent1, parent2):
   child = parent1[0:crossover] + parent2[crossover:]
   return child
 
-
-
 ''' 9. Make a function that goes through each gene in a chromosome
     and randomly decides whether or not to mutate. If it mutates,
     replace 0 with 1 or vice versa. '''
+
+def mutate(chromosome):
+  for i in range(len(chromosome)):
+    if random.random() < MUTATION_RATE:
+      if chromosome[i]:
+        chromosome[i] = 0
+      else:
+        chromosome[i] = 1
+  return chromosome
+
+
+
 ''' 10. For convenience, make a function that creates a child 
     chromosome by combining 8 & 9'''
 ''' 11. Make a function that makes a new population of children'''
@@ -84,7 +96,7 @@ def splice(parent1, parent2):
 ''' For convenience, make a function that finds and prints the
     fittest member of the current population.'''
 
-
+'''
 pop = populationInit()
 fit = populationFitness(pop)
 prob = populationProbability(fit)
@@ -92,4 +104,4 @@ prob = populationProbability(fit)
 #print("Fitness", fit)
 #print("Probabilities", prob)
 #print(getParent(prob))
-child = splice(getParent(prob), getParent(prob))
+child = splice(getParent(prob), getParent(prob))'''
