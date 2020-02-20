@@ -112,20 +112,17 @@ def getFittest(pop, fit):
     until a member of the population gets a perfect fitness, loops
     through the process of replacing the old population with a 
     new population of children. '''
-''' For convenience, make a function that finds and prints the
-    fittest member of the current population.'''
+def main():
+  pop = populationInit()
+  fit = populationFitness(pop)
+  while getFittest(pop, fit) < CHROMOSOME_LENGTH:
+    pop = nextGeneration(pop)
 
-
-pop = populationInit()
+main()
+'''pop = populationInit()
 fit = populationFitness(pop)
-prob = populationProbability(fit)
-#print("Population", pop)
-#print("Fitness", fit)
-#print("Probabilities", prob)
-#print(getParent(prob))
-p1 = getParent(pop, prob)
-p2 = getParent(pop, prob)
-child = reproduce(p1, p2)
-print(p1)
-print(p2)
-print(child)
+getFittest(pop, fit)'''
+
+
+
+
