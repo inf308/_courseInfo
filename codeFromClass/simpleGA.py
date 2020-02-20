@@ -99,6 +99,14 @@ def nextGeneration(parentPopulation):
     population.append(reproduce(parent1, parent2))
   return population
 
+''' For convenience, make a function that finds and prints the
+    fittest member of the current population.'''
+def getFittest(pop, fit):
+  maximum = max(fit)
+  #print(maximum, end=" ")
+  i = fit.index(maximum)
+  print(pop[i])
+  return sum(pop[i])
 
 ''' 12. Make a main function that initializes the population then
     until a member of the population gets a perfect fitness, loops
