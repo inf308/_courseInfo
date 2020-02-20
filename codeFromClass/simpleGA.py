@@ -3,7 +3,7 @@ import random
 CHROMOSOME_LENGTH = 8
 POPULATION_SIZE = 8
 #MUTATION_RATE = 0.05
-MUTATION_RATE = 1
+MUTATION_RATE = 0.2
 
 # 1. Make one chromosome: list of 4 things with random values of 0 or 1
 def chromosomeInit():
@@ -54,11 +54,8 @@ def populationProbability(fitnesses):
     population based on probability'''
 def getParent(population, probabilities):
   rand = random.random()
-  print(rand)
-  print(probabilities)
   i = 0
   while rand > probabilities[i]:
-    print(i, end=" ")
     i += 1
   return population[i]
 
@@ -84,11 +81,25 @@ def mutate(chromosome):
         chromosome[i] = 1
   return chromosome
 
-
-
 ''' 10. For convenience, make a function that creates a child 
     chromosome by combining 8 & 9'''
+def reproduce(p1, p2):
+  child = splice(p1, p2)
+  child = mutate(child)
+  return child
+
 ''' 11. Make a function that makes a new population of children'''
+def nextGeneration(parentPopulation):
+  population = []
+  for i in range(POPULATION_SIZE):
+    fit = populationFitness(parentPopulation)
+    prob = populationProbability(fit)
+    parent1 = getParent(parentPopulation, prob)
+    parent2 = getParent(parentPopulation, prob)
+    population.append(reproduce(parent1, parent2))
+  return population
+
+
 ''' 12. Make a main function that initializes the population then
     until a member of the population gets a perfect fitness, loops
     through the process of replacing the old population with a 
@@ -96,7 +107,7 @@ def mutate(chromosome):
 ''' For convenience, make a function that finds and prints the
     fittest member of the current population.'''
 
-'''
+
 pop = populationInit()
 fit = populationFitness(pop)
 prob = populationProbability(fit)
@@ -104,4 +115,9 @@ prob = populationProbability(fit)
 #print("Fitness", fit)
 #print("Probabilities", prob)
 #print(getParent(prob))
-child = splice(getParent(prob), getParent(prob))'''
+p1 = getParent(pop, prob)
+p2 = getParent(pop, prob)
+child = reproduce(p1, p2)
+print(p1)
+print(p2)
+print(child)
