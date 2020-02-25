@@ -1,25 +1,14 @@
 import pygame
 import random
 
-WIDTH = 800
-HEIGHT = 600
-WHITE = (255, 255, 255)
-BLUE = (0, 0, 255)
-GREEN = (0, 255, 0)
-RED = (255, 0, 0)
-
-game_display = pygame.display.set_mode((WIDTH,HEIGHT))
-pygame.display.set_caption('Blob World')
-clock = pygame.time.Clock()
-
-
 class Blob:
     
-    def __init__(self, color):
+    def __init__(self, color, win):
         self.x = random.randrange(0, WIDTH)
         self.y = random.randrange(0, HEIGHT)
         self.size = random.randrange(4,8)
         self.color = color
+        self.win = win
 
     def move(self):
         self.move_x = random.randrange(-1,2)
@@ -32,27 +21,6 @@ class Blob:
         
         if self.y < 0: self.y = 0
         elif self.y > HEIGHT: self.y = HEIGHT
-
-
-def draw_environment(blobList):
-    game_display.fill(WHITE)
-    for blob in blobList:
-        pygame.draw.circle(game_display, blob.color, [blob.x, blob.y], blob.size)
-    pygame.display.update()
-    for blob in blobList:
-        blob.move()
-
     
-def main():
-    blobs = [Blob(RED), Blob(BLUE), Blob(GREEN)]
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
-
-        draw_environment(blobs)
-        clock.tick(60)
-
-if __name__ == '__main__':
-    main()
+    def draw(self):
+        pygame.draw.circle(self.win, self.color, [self.x, self.y], self.size)
