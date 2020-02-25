@@ -6,6 +6,7 @@ class Blob:
     def __init__(self, color, win):
         self.WIDTH = win.get_width()
         self.HEIGHT = win.get_height()
+        self.order = ["x", "y", "size", "speed", "r", "g", "b"]
         self.chromosome = {}
         self.chromosome["x"] = random.randrange(0, self.WIDTH)
         self.chromosome["y"] = random.randrange(0, self.HEIGHT)
@@ -28,5 +29,7 @@ class Blob:
         if self.y < 0: self.y = 0
         elif self.y > self.HEIGHT: self.y = self.HEIGHT
     
+    
+
     def draw(self):
         pygame.draw.circle(self.win, self.color, [self.x, self.y], self.size)
