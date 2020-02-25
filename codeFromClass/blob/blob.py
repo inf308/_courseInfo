@@ -6,10 +6,14 @@ class Blob:
     def __init__(self, color, win):
         self.WIDTH = win.get_width()
         self.HEIGHT = win.get_height()
-        self.x = random.randrange(0, self.WIDTH)
-        self.y = random.randrange(0, self.HEIGHT)
-        self.size = random.randrange(4,8)
-        self.color = color
+        self.chromosome = {}
+        self.chromosome["x"] = random.randrange(0, self.WIDTH)
+        self.chromosome["y"] = random.randrange(0, self.HEIGHT)
+        self.chromosome["size"] = random.randrange(4,20)
+        self.chromosome["speed"] = random.randrange(0,10)
+        self.chromosome["r"]
+        self.chromosome["g"]
+        self.chromosome["b"]
         self.win = win
 
     def move(self):
