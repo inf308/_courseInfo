@@ -1,6 +1,6 @@
 import pygame
 import random
-import blob
+from blob import *
 
 WIDTH = 800
 HEIGHT = 600
