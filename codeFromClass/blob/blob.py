@@ -31,7 +31,7 @@ class Blob:
         self.chromosome["r"] = color[0]
         self.chromosome["g"] = color[1]
         self.chromosome["b"] = color[2]
-        
+
         self.win = win
         self.rect = None
 
@@ -61,5 +61,7 @@ class Blob:
         return potentialMates[mate]
     
     def splice(self, mate):
+        '''TODO: create this function. I copied code from simpleGA as 
+        reference but it won't work in this context'''
         child = parent1[0:crossover] + parent2[crossover:]
         return child
