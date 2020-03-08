@@ -8,6 +8,8 @@ WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
+START_POPULATION = 10
+MAX_POPULATION = 256
 
 game_display = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption('Blob World')
