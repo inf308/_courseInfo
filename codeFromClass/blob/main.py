@@ -20,8 +20,13 @@ def draw_environment(blobList):
     for blob in blobList:
         blob.draw()
     pygame.display.update()
+    children = []
     for blob in blobList:
         blob.move()
+        child = blob.mate(blobList)
+        if child:
+            children.append(child)
+    blobList += children
 
     
 def main():
