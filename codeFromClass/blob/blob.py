@@ -94,8 +94,10 @@ class Blob:
 
         return potentialMates[mate]
     
+
     def splice(self, mate):
-        '''TODO: create this function. I copied code from simpleGA as 
-        reference but it won't work in this context'''
-        child = parent1[0:crossover] + parent2[crossover:]
+        # randomize parent order
+        parent = [self, mate]
+        random.shuffle(parent)
+
         return child
