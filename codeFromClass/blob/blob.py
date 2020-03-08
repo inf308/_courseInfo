@@ -37,6 +37,31 @@ class Blob:
         self.win = win
         self.rect = None
 
+
+    def getColor(self):
+        return (int(self.chromosome["r"]), int(self.chromosome["g"]), int(self.chromosome["b"]))
+
+
+    def getCoords(self):
+        return (int(self.chromosome["x"]), int(self.chromosome["y"]))
+
+
+    def getSize(self):
+        return int(self.chromosome["size"])
+
+
+    def getSpeed(self):
+        return self.chromosome["speed"]
+
+
+    def getX(self):
+        return int(self.chromosome["x"])
+
+
+    def getY(self):
+        return int(self.chromsome["y"])
+
+
     def move(self):
         self.move_x = random.randrange(-1,2)
         self.move_y = random.randrange(-1,2)
