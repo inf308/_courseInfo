@@ -11,6 +11,7 @@ class Blob:
         self.chromosome = {}
 
         if coords is None: 
+            coords = [0, 0]
             coords[0] = random.randrange(0, self.WIDTH)
             coords[1] = random.randrange(0, self.HEIGHT)
         self.chromosome["x"] = coords[0]
@@ -25,6 +26,7 @@ class Blob:
         self.chromosome["speed"] = speed
 
         if color is None:
+            color = [0, 0, 0]
             color[0] = random.randint(0, 255)
             color[1] = random.randint(0, 255)
             color[2] = random.randint(0, 255)
