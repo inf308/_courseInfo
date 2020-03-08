@@ -76,8 +76,10 @@ class Blob:
     
 
 
+
+
     def draw(self):
-        self.rect = pygame.draw.circle(self.win, self.color, [self.x, self.y], self.size)
+        self.rect = pygame.draw.circle(self.win, self.getColor(), self.getCoords(), self.getSize())
 
     def findMate(self, potentialMates):
         mates = self.rect.collidelistall(potentialMates)
