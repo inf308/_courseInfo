@@ -65,14 +65,14 @@ class Blob:
     def move(self):
         self.move_x = random.randrange(-1,2)
         self.move_y = random.randrange(-1,2)
-        self.x += self.move_x
-        self.y += self.move_y
+        self.chromosome["x"] += random.random()*2*self.getSpeed()-self.getSpeed()
+        self.chromosome["y"] += random.random()*2*self.getSpeed()-self.getSpeed()
         
-        if self.x < 0: self.x = 0
-        elif self.x > self.WIDTH: self.x = self.WIDTH
+        if self.chromosome["x"] < 0: self.chromosome["x"] = 0
+        elif self.chromosome["x"] > self.WIDTH: self.chromosome["x"] = self.WIDTH
         
-        if self.y < 0: self.y = 0
-        elif self.y > self.HEIGHT: self.y = self.HEIGHT
+        if self.chromosome["y"] < 0: self.chromosome["y"] = 0
+        elif self.chromosome["y"] > self.HEIGHT: self.chromosome["y"] = self.HEIGHT
     
 
 
