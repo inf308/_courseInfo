@@ -100,4 +100,11 @@ class Blob:
         parent = [self, mate]
         random.shuffle(parent)
 
+        # splice chromosome into child chromosome dictionary
+        cc = {}
+        for i in self.order[0:self.CROSSOVER]:
+            cc[i] = parent[0].chromosome[i]
+        for i in self.order[self.CROSSOVER:]:
+            cc[i] = parent[1].chromosome[i]
+
         return child
