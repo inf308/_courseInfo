@@ -111,3 +111,11 @@ class Blob:
         child = Blob(self.win, (cc["x"], cc["y"]), cc["size"], cc["speed"], (cc["r"], cc["g"], cc["b"]))
 
         return child
+
+    def mate(self, potentialMates):
+        mate = self.findMate(potentialMates)
+        if mate:
+            child = self.splice(mate)
+            # TODO: add mutation here
+            return child
+        return False
