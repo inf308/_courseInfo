@@ -27,6 +27,8 @@ def draw_environment(blobList):
         if child:
             children.append(child)
     blobList += children
+    while len(blobList) > MAX_POPULATION:
+        print("kill: ", blobList.pop(random.randrange(1, len(blobList))))
 
     
 def main():
