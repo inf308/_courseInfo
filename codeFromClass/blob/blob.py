@@ -81,12 +81,17 @@ class Blob:
     def draw(self):
         self.rect = pygame.draw.circle(self.win, self.getColor(), self.getCoords(), self.getSize())
 
+
     def findMate(self, potentialMates):
+
+        #potentialMates.remove(self)
+
         mates = self.rect.collidelistall(potentialMates)
-        if mates < 0:
+        if len(mates) <= 0:
             return False
         
         mate = random.choice(mates)
+
         return potentialMates[mate]
     
     def splice(self, mate):
