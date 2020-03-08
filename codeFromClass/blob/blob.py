@@ -7,7 +7,7 @@ class Blob:
         self.WIDTH = win.get_width()
         self.HEIGHT = win.get_height()
         self.order = ["x", "y", "size", "speed", "r", "g", "b"]
-        self.CROSSOVER = int(len(order)/2)
+        self.CROSSOVER = int(len(self.order)/2)
         self.chromosome = {}
 
         if coords is None: 
