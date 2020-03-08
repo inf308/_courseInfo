@@ -107,4 +107,7 @@ class Blob:
         for i in self.order[self.CROSSOVER:]:
             cc[i] = parent[1].chromosome[i]
 
+        # create child blob
+        child = Blob(self.win, (cc["x"], cc["y"]), cc["size"], cc["speed"], (cc["r"], cc["g"], cc["b"]))
+
         return child
