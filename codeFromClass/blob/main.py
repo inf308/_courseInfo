@@ -32,7 +32,10 @@ def draw_environment(blobList):
 
     
 def main():
-    blobs = [Blob(RED, game_display), Blob(BLUE, game_display), Blob(GREEN, game_display)]
+    blobs = []
+    for i in range(START_POPULATION):
+        blobs.append(Blob(game_display))
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
