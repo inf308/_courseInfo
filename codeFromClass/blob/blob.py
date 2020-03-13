@@ -6,6 +6,7 @@ class Blob:
     def __init__(self, win, coords=None, size=None, speed=None, color=None):
         self.WIDTH = win.get_width()
         self.HEIGHT = win.get_height()
+        self.MUT_PROB = 0.05
         self.order = ["x", "y", "size", "speed", "r", "g", "b"]
         self.CROSSOVER = int(len(self.order)/2)
         self.chromosome = {}
@@ -62,6 +63,25 @@ class Blob:
         return int(self.chromsome["y"])
 
 
+    def mutateGene(self, gene, mutAmount, min, max):
+        if random.random() < self.MUT_PROB:
+            self.chromosome[gene] = random.random()*mutAmount*2 - mutAmount
+            if self.chromosome[gene] < min: self.chromosome[gene] = min
+            if self.chromosome[gene] < max: self.chromosome[gene] = max
+
+    
+    def mutate(self):
+        # ["x", "y", "size", "speed", "r", "g", "b"]
+        self.mutateGene("x", 10, 0, self.WIDTH)
+        self.mutateGene("y", 10, 0, self.HEIGHT)
+        self.mutateGene("size", 1, 4, 20)
+        self.mutateGene("speed", 1, 0, 10)
+        self.mutateGene("r", 5, 0, 255)
+        self.mutateGene("g", 5, 0, 255)
+        self.mutateGene("b", 5, 0, 255)
+        
+
+
     def moveOneDimension(self, d):
         self.chromosome[d] += random.random()*2*self.getSpeed()-self.getSpeed()
         if self.chromosome[d] < 0: 
@@ -110,6 +130,8 @@ class Blob:
 
         # create child blob
         child = Blob(self.win, (cc["x"], cc["y"]), cc["size"], cc["speed"], (cc["r"], cc["g"], cc["b"]))
+
+        child.mutate()
 
         return child
 
