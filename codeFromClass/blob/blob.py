@@ -82,6 +82,10 @@ class Blob:
     def findMate(self, potentialMates):
 
         #potentialMates.remove(self)
+        # TODO: ideally we want to remove self frompotential Mates but
+        # using .remove removes it permanently from the population
+        # so we need to either use deep copy or remove then immediately
+        # put back
 
         mates = self.rect.collidelistall(potentialMates)
         if len(mates) <= 0:
@@ -108,6 +112,7 @@ class Blob:
         child = Blob(self.win, (cc["x"], cc["y"]), cc["size"], cc["speed"], (cc["r"], cc["g"], cc["b"]))
 
         return child
+
 
     def mate(self, potentialMates):
         mate = self.findMate(potentialMates)
