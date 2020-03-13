@@ -15,20 +15,33 @@ game_display = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption('Blob World')
 clock = pygame.time.Clock()
 
-def draw_environment(blobList):
+def drawEnvironment(blobList):
     game_display.fill(WHITE)
     for blob in blobList:
         blob.draw()
     pygame.display.update()
-    children = []
+
+def move(blobList):
     for blob in blobList:
         blob.move()
+
+def reproduce(blobList):
+    children = []
+    for blob in blobList:
         child = blob.mate(blobList)
         if child:
             children.append(child)
     blobList += children
+    
+
+def update(blobList):
+    drawEnvironment(blobList)
+    move(blobList)
+    reproduce(blobList)
+
     while len(blobList) > MAX_POPULATION:
         print("kill: ", blobList.pop(random.randrange(1, len(blobList))))
+
 
     
 def main():
@@ -42,7 +55,7 @@ def main():
                 pygame.quit()
                 quit()
 
-        draw_environment(blobs)
+        update(blobs)
         clock.tick(60)
 
 if __name__ == '__main__':
