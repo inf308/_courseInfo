@@ -102,18 +102,18 @@ class Blob:
     def findMate(self, potentialMates):
 
         #potentialMates.remove(self)
-        # TODO: ideally we want to remove self frompotential Mates but
-        # using .remove removes it permanently from the population
-        # so we need to either use deep copy or remove then immediately
-        # put back
 
         mates = self.rect.collidelistall(potentialMates)
         if len(mates) <= 0:
             return False
         
-        mate = random.choice(mates)
+        mateIndex = random.choice(mates)
+        mate = potentialMates[mateIndex]
 
-        return potentialMates[mate]
+        if mate == self:
+            return False
+
+        return mate
     
 
     def splice(self, mate):
