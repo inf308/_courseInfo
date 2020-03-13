@@ -65,9 +65,9 @@ class Blob:
 
     def mutateGene(self, gene, mutAmount, min, max):
         if random.random() < self.MUT_PROB:
-            self.chromosome[gene] = random.random()*mutAmount*2 - mutAmount
+            self.chromosome[gene] += random.random()*mutAmount*2 - mutAmount
             if self.chromosome[gene] < min: self.chromosome[gene] = min
-            if self.chromosome[gene] < max: self.chromosome[gene] = max
+            if self.chromosome[gene] > max: self.chromosome[gene] = max
 
     
     def mutate(self):
@@ -76,9 +76,9 @@ class Blob:
         self.mutateGene("y", 10, 0, self.HEIGHT)
         self.mutateGene("size", 1, 4, 20)
         self.mutateGene("speed", 1, 0, 10)
-        self.mutateGene("r", 5, 0, 255)
-        self.mutateGene("g", 5, 0, 255)
-        self.mutateGene("b", 5, 0, 255)
+        self.mutateGene("r", 2, 0, 255)
+        self.mutateGene("g", 2, 0, 255)
+        self.mutateGene("b", 2, 0, 255)
         
 
 
