@@ -62,20 +62,17 @@ class Blob:
         return int(self.chromsome["y"])
 
 
+    def moveOneDimension(self, d):
+        self.chromosome[d] += random.random()*2*self.getSpeed()-self.getSpeed()
+        if self.chromosome[d] < 0: 
+            self.chromosome[d] = 0
+        elif self.chromosome[d] > self.WIDTH: 
+            self.chromosome[d] = self.WIDTH
+
+
     def move(self):
-        self.move_x = random.randrange(-1,2)
-        self.move_y = random.randrange(-1,2)
-        self.chromosome["x"] += random.random()*2*self.getSpeed()-self.getSpeed()
-        self.chromosome["y"] += random.random()*2*self.getSpeed()-self.getSpeed()
-        
-        if self.chromosome["x"] < 0: self.chromosome["x"] = 0
-        elif self.chromosome["x"] > self.WIDTH: self.chromosome["x"] = self.WIDTH
-        
-        if self.chromosome["y"] < 0: self.chromosome["y"] = 0
-        elif self.chromosome["y"] > self.HEIGHT: self.chromosome["y"] = self.HEIGHT
-    
-
-
+        self.moveOneDimension("x")
+        self.moveOneDimension("y")
 
 
     def draw(self):
